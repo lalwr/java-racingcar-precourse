@@ -78,7 +78,7 @@ public abstract class NSTest {
 
     protected abstract void runMain();
 
-    private void command(final String... args) {
+    protected void command(final String... args) {
         final byte[] buf = Strings.join(args).with("\n").getBytes();
         System.setIn(new ByteArrayInputStream(buf));
     }
