@@ -1,5 +1,6 @@
 package racinggame.domain;
 
+import nextstep.utils.Console;
 import racinggame.ui.Input;
 
 public class User {
@@ -7,14 +8,32 @@ public class User {
 
     private String user;
 
-    public User(String user) {
-        this.user = user;
+    public User() {
+        this.user = Console.readLine();
+        valid();
+    }
+
+    private void valid() {
+        validEmptyName();
         validNameLength();
+    }
+
+    private void validEmptyName() {
+        if (this.user.trim().equals("")) {
+            Input.errorInputUserNameMaxLength();
+            reUserInputName();
+        }
     }
 
     private void validNameLength() {
         if (this.user.length() > MAX_LENGTH) {
-            Input.errorInputUserNameMaxLength();
+            Input.errorInputUserNameEmpty();
+            reUserInputName();
         }
+    }
+
+    private void reUserInputName(){
+        this.user = Console.readLine();
+        valid();
     }
 }

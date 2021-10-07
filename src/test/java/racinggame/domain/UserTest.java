@@ -17,12 +17,26 @@ class UserTest extends NSTest {
     @Test
     @DisplayName("유저_이름_5자리_초과")
     void 유저_이름_5자리_초과() {
-        User user = new User("aaacar");
+        run("pobi56", "pobi");
+        verify(ERROR_MESSAGE);
+    }
+
+    @Test
+    @DisplayName("유저_이름_5자리_이하")
+    void 유저_이름_5자리_이하() {
+        run("pobi5");
+        notVerify(ERROR_MESSAGE);
+    }
+
+    @Test
+    @DisplayName("유저_입력안했을때")
+    void 유저_입력안했을때() {
+        run(" ", "pobi");
         verify(ERROR_MESSAGE);
     }
 
     @Override
     protected void runMain() {
-
+        new User();
     }
 }

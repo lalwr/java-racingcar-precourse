@@ -67,6 +67,10 @@ public abstract class NSTest {
         assertThat(output()).contains(args);
     }
 
+    protected void notVerify(final String... args) {
+        assertThat(output()).doesNotContain(args);
+    }
+
     private void subject(final String... args) {
         command(args);
         runMain();
