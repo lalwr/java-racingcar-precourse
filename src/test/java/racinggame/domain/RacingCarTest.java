@@ -7,7 +7,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racinggame.ApplicationTest;
 
-class CarTest extends NSTest {
+class RacingCarTest extends NSTest {
 
     @BeforeEach
     void beforeEach() {
@@ -15,25 +15,16 @@ class CarTest extends NSTest {
     }
 
     @Test
-    @DisplayName("자동차_이름_5자리_초과")
-    void 자동차_이름_5자리_초과() {
-        run("pobi");
-        new Car("pobi56");
-        verify(ApplicationTest.ERROR_MESSAGE);
-    }
-
-    @Test
-    @DisplayName("자동차_이름_5자리_이하")
-    void 자동차_이름_5자리_이하() {
-        new Car("pobi5");
+    @DisplayName("자동차_정상_셋팅")
+    void 자동차_정상_셋팅() {
+        run("pobi,woni");
         notVerify(ApplicationTest.ERROR_MESSAGE);
     }
 
     @Test
-    @DisplayName("자동차_입력안했을때")
-    void 자동차_입력안했을때() {
-        run("pobi");
-        new Car("");
+    @DisplayName("자동차_셋팅_6자리포함")
+    void 자동차_셋팅_6자리포함() {
+        run("pobi,woni12,wibj", "wonj");
         verify(ApplicationTest.ERROR_MESSAGE);
     }
 
@@ -44,5 +35,6 @@ class CarTest extends NSTest {
 
     @Override
     protected void runMain() {
+        new RacingCar();
     }
 }

@@ -9,7 +9,7 @@ public class ApplicationTest extends NSTest {
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
 
-    private static final String ERROR_MESSAGE = "[ERROR]";
+    public static final String ERROR_MESSAGE = "[ERROR]";
 
     @BeforeEach
     void beforeEach() {
