@@ -6,9 +6,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racinggame.ApplicationTest;
-import racinggame.racing.RacingCar;
 
-class RacingCarTest extends NSTest {
+class RacingCountTest extends NSTest {
 
     @BeforeEach
     void beforeEach() {
@@ -16,16 +15,9 @@ class RacingCarTest extends NSTest {
     }
 
     @Test
-    @DisplayName("자동차_정상_셋팅")
-    void 자동차_정상_셋팅() {
-        run("pobi,woni");
-        notVerify(ApplicationTest.ERROR_MESSAGE);
-    }
-
-    @Test
-    @DisplayName("자동차_셋팅_6자리포함")
-    void 자동차_셋팅_6자리포함() {
-        run("pobi,woni12,wibj", "pobi,woni,wibj");
+    @DisplayName("레이싱횟수_제로")
+    void 레이싱횟수_제로() {
+        run("0", "1");
         verify(ApplicationTest.ERROR_MESSAGE);
     }
 
@@ -36,6 +28,6 @@ class RacingCarTest extends NSTest {
 
     @Override
     protected void runMain() {
-        new RacingCar();
+        new RacingCount();
     }
 }
